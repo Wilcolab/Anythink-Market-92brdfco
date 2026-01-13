@@ -1,0 +1,9 @@
+def to_snake_case(text):
+    import re
+    # Replace non-alphanumeric characters with spaces
+    text = re.sub(r'[^a-zA-Z0-9]', ' ', text)
+    # Insert spaces before capital letters (except at the start)
+    text = re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', text)
+    # Split, lowercase, and join with underscores
+    words = text.strip().split()
+    return '_'.join(word.lower() for word in words)
